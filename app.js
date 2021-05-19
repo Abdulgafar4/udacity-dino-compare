@@ -130,7 +130,7 @@ class Tiles {
         if (Inches < this.dino.height) {
             return `You are ${((this.dino.height) - (Inches))} inches shorter than the ${this.animal}.`;
         }
-        if (this.height > this.dino.height) {
+        else if (Inches > this.dino.height) {
             return `You are ${((this.inches) - (this.dino.height))} inches taller than the ${this.animal}.`;
         }
         else {
@@ -143,7 +143,7 @@ class Tiles {
         if (Name < this.dino.species) {
             return `Your name  is shorter than ${this.animal}.`;
         }
-        if (Name == this.dino.species) {
+        else if (Name == this.dino.species) {
             return `Your name is equal with ${this.animal}.`;
         }
         else {
@@ -157,7 +157,7 @@ class Tiles {
             const percentage = 100 - (Weight) * 100 / (this.dino.weight);
             return `You weigh ${(percentage.toFixed(1))} % less than the ${this.animal}.`;
         }
-        if (Weight > this.dino.weight) {
+        else if (Weight > this.dino.weight) {
             const percentage = (Weight) * 100 / (this.dino.weight);
             return `You weigh ${(percentage.toFixed(1))} % more than the ${this.animal}.`;
         }
@@ -169,14 +169,14 @@ class Tiles {
 
 tiles = [];
 
-dinos.map(d => {
-tiles.push(new Tiles(d));
+dinos.map(dino => {
+tiles.push(new Tiles(dino));
 });
 
 // Add tiles to DOM
 
 function TilesToDom(){
-tiles.splice(4, 0, {title: "Human", image: "./images/human.png"}); 
+tiles.splice(4, 0, {title: "Human", image: "./images/human.png"});
 tiles.map(tile =>{   
     // Check if the object is a human else setup the messages
     if(tile.title == "Human"){}
@@ -203,11 +203,11 @@ tiles.map(tile =>{
     h3.textContent = tile.title
 
     //Add the right content to the paragraph
-    if(tile.title == "Human"){
+  if(tile.title == "Human"){
         p.textContent = Name;
     }
-    else if(tile.title === "Pigeon"){
-        p.textContent = "All birds are dinosaurs.";
+    else if(tile.animal == "Pigeon") {
+        p.textContent = "All birds are dinosaurs";
     }
     else {
         switch(Math.floor((Math.random() * 2))){
@@ -221,7 +221,7 @@ tiles.map(tile =>{
                 p.textContent = weightFact;
                 break;
             default:
-               p.textContent = 'Dinosaurs are cool!';
+               p.textContent = "dinosaurs are cool";
         }
     }
     //Add the image to the DOM
