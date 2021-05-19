@@ -176,7 +176,7 @@ tiles.push(new Tiles(d));
 // Add tiles to DOM
 
 function TilesToDom(){
-tiles.splice(0, 0, {title: "Human", image: './images/human.png'}); 
+tiles.splice(4, 0, {title: "Human", image: "./images/human.png"}); 
 tiles.map(tile =>{   
     // Check if the object is a human else setup the messages
     if(tile.title == "Human"){}
@@ -206,7 +206,7 @@ tiles.map(tile =>{
     if(tile.title == "Human"){
         p.textContent = Name;
     }
-    else if(tile.title == "Pigeon"){
+    else if(tile.title === "Pigeon"){
         p.textContent = "All birds are dinosaurs.";
     }
     else {
